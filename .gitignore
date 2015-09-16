@@ -1,0 +1,6 @@
+build
+dist
+npm-debug.log
+node_modules
+test-reports
+coverage-reports

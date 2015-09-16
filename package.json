@@ -1,0 +1,23 @@
+{
+  "name": "worldpay-cse",
+  "version": "1.0.0",
+  "description": "WorldPay Client Side Encryption client library",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-html-build": "^0.5.0",
+    "grunt-jsdoc": "^0.6.7",
+    "grunt-qunit-istanbul": "^0.5.0",
+    "grunt-qunit-junit": "^0.3.1",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-maven-deploy": "^0.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Worldpay",
+  "license": "Worldpay"
+}
