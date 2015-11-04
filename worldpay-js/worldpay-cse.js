@@ -338,9 +338,9 @@ function validateCardNumber(cardNumber) {
 	if(!isEmpty(cardNumber)) {
 		if(evaluateRegex(cardNumber, "^[0-9]{12,20}$")) {
 			if (doLuhnCheck(cardNumber)) { return 0;
-			} else { return 103; }
+			} else { return 102; }
 		}
-		else { return 102; }
+		else { return 103; }
 	} else { return 101;}
 }
 function doLuhnCheck(value) {
