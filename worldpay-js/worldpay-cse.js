@@ -316,12 +316,12 @@ function validateDate(expiryMonth, expiryYear) {
 }
 
 function isFutureDate(expiryMonth, expiryYear) {
-	var date = new Date(), today = new Date();
-	date.setMonth(expiryMonth);
-	date.setFullYear(expiryYear);
-	date.setUTCMilliseconds(date.getUTCMilliseconds() - 1); //Expire just before midnight on the last day of the month
-	if (date>=today) { return true; } return false;
+        var now = new Date();
+        var month = now.getMonth() + 1; // Date are zero based in JavaScript e.g. Jan = 0. So we convert this here.
+        var year = now.getFullYear();
+        return expiryYear > year || (expiryYear == year && expiryMonth >= month);
 }
+
 function validateCardHolderName(cardHolderName) {
 	if(!isEmpty(cardHolderName)) {
 		if(evaluateRegex(cardHolderName, "^.{1,30}$")) {

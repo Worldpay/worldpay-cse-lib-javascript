@@ -159,15 +159,41 @@ QUnit.test("fails if year fails regex", function(assert) {
 });
 
 QUnit.test("fails if expiry date is before this month", function(assert) {
-	var now = new Date();
-	testHelper.expiryMonth.val(('0' + now.getMonth()).slice(-2)); //January = 0 so this will be last month, 0 padded
-	testHelper.expiryYear.val(now.getFullYear()); //will always be 4 digits anyway (until year 10000 when this test should be updated anyway :D)
+        testHelper.expiryMonth.val('12'); //January = 0 so this will be last month, 0 padded
+	testHelper.expiryYear.val('2015'); //will always be 4 digits anyway (until year 10000 when this test should be updated anyway :D)
 
 	testHelper.submit();
 
 	assert.notOk(testHelper.getEncryptedData(), "should fail if date is before this month");
 	assert.deepEqual(testHelper.getErrorCodes(), [306], "correct error code should be supplied");
 });
+
+// INC00329847 Start
+QUnit.test("succeeds if expiryDate is 1-18 months in the future", function(assert) {
+	for (var monthsToAdd = 1; monthsToAdd < 19; monthsToAdd++) {
+		var now = new Date();
+		var currentMonth = now.getMonth() + 1; // Convert from zero based month
+                var futureMonth = currentMonth + monthsToAdd;
+                var year = now.getFullYear();
+		if (futureMonth > 12) {
+			futureMonth = futureMonth - 12;
+			year = year + 1;
+		}
+		if (futureMonth > 24) {
+			futureMonth = futureMonth - 24;
+			year = year + 2;
+		}
+		testHelper.expiryMonth.val(('0' + (futureMonth)).slice(-2));
+		testHelper.expiryYear.val(year);
+
+		testHelper.submit();
+		
+	        assert.ok(testHelper.getEncryptedData(), "should succeed if date is in the future");
+	        assert.notOk(testHelper.getErrorCodes().length, "error codes should be empty");
+       		assert.deepEqual(testHelper.getErrorCodes(), [], "error codes should be empty");
+	}
+});
+// INC00329847 End
 
 QUnit.test("encrypts if expiry date is at the end of this month", function(assert) {
 	var now = new Date();
