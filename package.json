@@ -1,6 +1,6 @@
 {
   "name": "worldpay-cse",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WorldPay Client Side Encryption client library",
   "devDependencies": {
     "grunt": "^0.4.5",

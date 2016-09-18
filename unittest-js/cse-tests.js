@@ -169,8 +169,8 @@ QUnit.test("fails if expiry date is before this month", function(assert) {
 });
 
 // INC00329847 Start
-QUnit.test("succeeds if expiryDate is 1-18 months in the future", function(assert) {
-	for (var monthsToAdd = 1; monthsToAdd < 19; monthsToAdd++) {
+QUnit.test("succeeds if expiryDate is 1-12 months in the future", function(assert) {
+	for (var monthsToAdd = 1; monthsToAdd < 13; monthsToAdd++) {
 		var now = new Date();
 		var currentMonth = now.getMonth() + 1; // Convert from zero based month
                 var futureMonth = currentMonth + monthsToAdd;
