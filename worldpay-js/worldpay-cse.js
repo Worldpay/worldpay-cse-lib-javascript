@@ -59,6 +59,15 @@ worldpayCse.encrypt = encrypt;
  */
 worldpayCse.setPublicKey = setPublicKey;
 
+/**
+ * Validate card details
+ *
+ * @function
+ * @param {CardData} cardData - An object containing information about the card details to validate.
+ * @returns [errorHandler] - An array of error numbers
+ */
+worldpayCse.validateFields = validateFields;
+
 if (typeof global.define === "function" && global.define.amd) {
 	global.define(function() {
 		return worldpayCse;
