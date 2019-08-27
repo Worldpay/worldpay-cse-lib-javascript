@@ -216,7 +216,7 @@ QUnit.test("fails if card holder name is empty", function(assert) {
 });
 
 QUnit.test("fails if card holder name is too long", function(assert) {
-	testHelper.cardHolderName.val('Mary had a little lamb, little lamb, little lamb');
+	testHelper.cardHolderName.val('CardholderName CardholderName CardholderName CardholderName CardholderName CardholderName');
 
 	testHelper.submit();
 
