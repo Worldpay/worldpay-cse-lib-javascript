@@ -333,7 +333,7 @@ function isFutureDate(expiryMonth, expiryYear) {
 
 function validateCardHolderName(cardHolderName) {
 	if(!isEmpty(cardHolderName)) {
-		if(evaluateRegex(cardHolderName, "^.{1,30}$")) {
+		if(evaluateRegex(cardHolderName, "^.{1,34}$")) {
 			return 0;
 		} else { return 402;}
 	} else { return 401;}
